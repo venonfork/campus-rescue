@@ -1,8 +1,8 @@
 <template lang="html">
-  <!-- ./components/pages/users -->
+  <!-- ./components/pages/Users.vue -->
   <main id="main" class="users" :class="{'is-editing': userActive}">
     <user-list
-      :userUpdated="activeUser"
+      :userUpdated="userActive"
       @edit-active-user="userActive = $event">
     </user-list>
     <profile
@@ -25,8 +25,8 @@ export default {
   components: { Profile, UserList },
   computed: {
     activeUser() {
-      return this.userActive;
-      // return this.userActive ? Object.assign({}, this.userActive) : null;
+      // return this.userActive; // ne pas faire ça !!!
+      return this.userActive ? Object.assign({}, this.userActive) : null;
     },
   }
 }

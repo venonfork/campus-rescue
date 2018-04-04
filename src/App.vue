@@ -5,16 +5,21 @@
       <img id="logo" src="./../static/img/logo.png">
       <nav-main></nav-main>
     </header>
-    <router-view></router-view>
+    <main id="main">
+      <nav-sidebar></nav-sidebar>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 <script>
 import NavMain from "./components/nav-main/NavMain.vue";
+import NavSidebar from "./components/nav-sidebar/NavSidebar.vue";
 
 export default {
   name: 'app',
   components: {
     NavMain,
+    NavSidebar,
   },
   data () {
     return {
@@ -32,6 +37,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   padding: 20px;
+}
+#main {
+    position: relative;
 }
 
 #logo {
@@ -72,6 +80,9 @@ input {
   font-weight: bolder;
 }
 
+body {
+  margin: 0;
+}
 h1, h2 {
   font-weight: normal;
   margin: 10px auto;

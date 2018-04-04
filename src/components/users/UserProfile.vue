@@ -41,7 +41,7 @@ export default {
 
 @media (min-width: 650px) {
   #profile,
-  #no_user_yet { 
+  #no_user_yet {
     order: 2;
   }
 }

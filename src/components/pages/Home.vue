@@ -1,5 +1,5 @@
 <template lang="html">
-    <!-- ./components/pages/home -->
+    <!-- ./components/pages/Home.vue -->
   <main id="main" class="home">
     <p><b>hello</b></p>
     <text-box message="world of"></text-box>
