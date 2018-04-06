@@ -8,7 +8,7 @@ module.exports = (app) => {
   const uploader = uploaderService.single('image_upload');
   // ci-dessus, "image_upload" correspond au name envoyé dans le formdata par le client !
 
-  const fileAPI = (app) => {
+  const fileAPI = () => {
 
     app.get('/file/uploads', (req, res) => {
       fs.readdir("./static/uploads", (err, files) => {
@@ -31,6 +31,6 @@ module.exports = (app) => {
     });
   };
 
-  return fileAPI(app);
+  return fileAPI();
 
 };

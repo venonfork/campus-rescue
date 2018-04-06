@@ -38,6 +38,9 @@ export const routes = [
     path: "/upload",
     name: "upload",
     component: Upload,
+    beforeUnload() {
+
+    }
   },
   {
       path: "*",

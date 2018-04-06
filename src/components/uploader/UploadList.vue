@@ -5,19 +5,16 @@
     </li>
   </ul>
 </template>
-
 <script>
-import { EventBus } from "./../../event-bus.js";
-import axios from "axios";
 
+import axios from "axios";
 export default {
   created() {
-
     this.getUploads();
-    EventBus.$on("uploaded-file", () => {
-      this.getUploads()
+    this.$ebus.$on("uploaded-file", () => {
+      // à chaque fois qu'event-bus reçoit l'event "uploaded-file", cette fonction est exec
+      this.getUploads();
     });
-
   },
   data() {
     return {
@@ -30,17 +27,16 @@ export default {
         method: "get",
         url: "http://localhost:3001/file/uploads",
         onDownloadProgress: function (evt) {
-          // Do whatever you want with the native progress event
-          let percentLoaded = Math.floor((evt.loaded * 100) / evt.total);
-          console.log(percentLoaded + "%");
+          let percentDownloaded = Math.floor((evt.loaded * 100) / evt.total);
+          console.log(percentDownloaded + "%");
         },
       }).then(res => {
         console.log("all good download");
-        console.log(res);
+        console.log(res); // res data contient les fichiers
         this.uploaded = res.data;
 
       }).catch(err => {
-        console.error("all wrong download" + err);
+        console.error("wrong download" + err);
       });
     },
   }

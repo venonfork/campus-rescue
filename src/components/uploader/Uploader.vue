@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { EventBus } from "./../../event-bus.js";
 import axios from "axios";
 
 export default {
@@ -52,7 +51,10 @@ export default {
         if (!warning) {
           this.uploadToServer(file);
         } else {
-          console.warn(warning);
+          this.$ebus.$emit("message-from-app", {
+            txt: warning,
+            status: "warning"
+          });
         }
       }
     },
@@ -70,12 +72,17 @@ export default {
           console.log(percentLoaded + "%");
         },
       }).then(res => { // la promesse a été tenue (pas d'erreur)
-        console.log("all good upload");
-        EventBus.$emit("uploaded-file");
+        this.$ebus.$emit("uploaded-file");
+        this.$ebus.$emit("message-from-app", {
+          txt: "YAY : fichier correctement uploadé !",
+          status: "success"
+        });
 
       }).catch(err => { // la promesse a été rompue (erreur 40x||50x ...)
-        console.warn("meh... wrong upload");
-        console.error(err);
+        this.$ebus.$emit("message-from-app", {
+          txt: err,
+          status: "error"
+        });
       });
     },
   }

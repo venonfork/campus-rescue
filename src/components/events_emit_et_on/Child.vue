@@ -1,18 +1,21 @@
 <template lang="html">
   <div id="child">
-    <h1>... et je suis le child</h1>
+    <h1>#jeSuisChild</h1>
     <p>
       {{ valDuParent }}
     </p>
-    <button @click="emitValue('une val de child')">click me homie !</button>
+    <button @click="emitValue(
+      `What\'s up ${Math.random() > .5 ? 'Mommy' : 'Daddy'} ?!!`)" class="btn">
+      <b>Click me Homie !</b>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    emitValue(v) {
-      this.$emit("mon-event-custom", v);
+    emitValue(valeurATransmettreAuParent) {
+      this.$emit("mon-event-custom", valeurATransmettreAuParent);
     }
   },
   props: ["valDuParent"]

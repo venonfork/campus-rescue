@@ -17,6 +17,10 @@ import Uploader from "./../uploader/Uploader.vue";
 import UploadList from "./../uploader/UploadList.vue";
 
 export default {
+  beforeRouteLeave (to, from, next) {
+    this.$ebus.$emit("message-from-app", null);
+    next();
+  },
   components: {
     Uploader,
     UploadList,

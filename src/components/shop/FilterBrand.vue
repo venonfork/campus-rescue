@@ -1,7 +1,5 @@
 <template lang="html">
-  <aside>
-    je suis filterbrand
-  </aside>
+  <p>filterbrand</p>
 </template>
 
 <script>

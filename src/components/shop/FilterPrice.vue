@@ -1,7 +1,5 @@
 <template lang="html">
-  <aside>
-    je suis filterprice
-  </aside>
+    <p>filterprice</p>
 </template>
 
 <script>

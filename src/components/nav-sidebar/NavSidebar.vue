@@ -13,11 +13,11 @@
   </aside>
 </template>
 <script>
-import { EventBus } from "./../../event-bus.js";
+
 export default {
   created() { // à la création du component
     // à chaque event custom "toggle-nav-sidebar", exécuter la fonction toggleNav
-    EventBus.$on("toggle-nav-sidebar", this.toggleNav);
+    this.$ebus.$on("toggle-nav-sidebar", this.toggleNav);
   },
   data() {
     return {

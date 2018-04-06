@@ -14,7 +14,6 @@
   </nav>
 </template>
 <script>
-import { EventBus } from "./../../event-bus.js";
 
 export default {
   data() {
@@ -31,7 +30,7 @@ export default {
   },
   methods: {
     toggleNavSidebar() {
-      EventBus.$emit("toggle-nav-sidebar");
+      this.$ebus.$emit("toggle-nav-sidebar");
     }
   }
 }

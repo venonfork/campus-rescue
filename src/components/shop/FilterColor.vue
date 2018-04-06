@@ -1,7 +1,5 @@
 <template lang="html">
-  <aside>
-    je suis filterColor
-  </aside>
+  <p>filterColor</p>
 </template>
 
 <script>

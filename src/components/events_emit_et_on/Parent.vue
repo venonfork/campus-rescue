@@ -1,7 +1,10 @@
 <template lang="html">
   <div id="parent">
-    <h1>je suis le parent</h1>
-    <child-comp 
+    <h1>
+      <span>#jeSuisParent</span>
+      <span v-if="messageFromChild">(Pardon ?!!)</span>
+    </h1>
+    <child-comp
       @mon-event-custom="displayValueFromTag($event)">
     </child-comp>
   </div>
@@ -11,12 +14,21 @@
 import ChildComp from "./Child.vue";
 
 export default {
+  data() {
+    return {
+      messageFromChild: null
+    }
+  },
   components: {
     ChildComp
   },
   methods: {
     displayValueFromTag(v) {
-      console.log(v + " reçue depuis l'event sur la balise @getValueFromTag()");
+      this.messageFromChild = "Pardon ?!"
+      console.log(v + " <=> message reçu du component enfant");
+      window.setInterval(() => {
+        this.messageFromChild = null;
+      }, 3000);
     }
   }
 }

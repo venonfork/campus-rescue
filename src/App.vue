@@ -5,19 +5,24 @@
       <img id="logo" src="./../static/img/logo.png">
       <nav-main></nav-main>
     </header>
+    <app-message></app-message>
     <main id="main">
       <nav-sidebar></nav-sidebar>
       <router-view></router-view>
     </main>
   </div>
 </template>
+
 <script>
+import { EventBus } from "./event-bus.js";
+import AppMessage from "./components/app-message/AppMessage.vue";
 import NavMain from "./components/nav-main/NavMain.vue";
 import NavSidebar from "./components/nav-sidebar/NavSidebar.vue";
 
 export default {
   name: 'app',
   components: {
+    AppMessage,
     NavMain,
     NavSidebar,
   },
